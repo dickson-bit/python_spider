@@ -5,11 +5,11 @@
 import re
  
 # 将正则表达式编译成Pattern对象，注意hello前面的r的意思是“原生字符串”
-pattern = re.compile(r'hello')
+pattern = re.compile('.*hello')
  
 # 使用Pattern匹配文本，获得匹配结果，无法匹配时将返回None
 match1 = pattern.match('hello world!')
-match2 = pattern.match('helloo world!')
+match2 = pattern.match('ohello world!')
 match3 = pattern.match('helllo world!')
 
 #如果match1匹配成功

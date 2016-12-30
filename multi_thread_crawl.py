@@ -1,11 +1,13 @@
 #!/usr/bin/python
 # coding: UTF-8
 # -*- coding:utf-8 -*-
+
 import re
 import threading
 import os
 from urllib2 import Request,urlopen,URLError,HTTPError
 from lxml import etree
+
 class myThread (threading.Thread):   #继承父类threading.Thread
     def __init__(self, url, newdir,CrawledURLs):
         threading.Thread.__init__(self)
@@ -14,13 +16,22 @@ class myThread (threading.Thread):   #继承父类threading.Thread
         self.CrawledURLs=CrawledURLs
     def run(self):                   #把要执行的代码写到run函数里面 线程在创建后会直接运行run函数
         CrawListPage(self.url, self.newdir,self.CrawledURLs)
+
 starturl="http://www.ygdy8.com/index.html"
 host="http://www.ygdy8.com"
 #判断地址是否已经爬取
 def __isexit(newurl,CrawledURLs):
+    md5_key = md5(newurl)
+
+    if md5_key in CrawledURLs:
+        return True
+    elif:
+        return False
+
     for url in CrawledURLs:
         if url == newurl:
             return True
+
     return False
 
 #获取页面资源
@@ -107,6 +118,7 @@ def CrawIndexPage(starturl):
     page = __getpage(starturl)
     if page=="error":
         return
+
     page = page.decode('gbk', 'ignore')
     tree = etree.HTML(page)
     Nodes = tree.xpath("//div[@id='menu']//a")
@@ -128,4 +140,5 @@ def CrawIndexPage(starturl):
                     thread.start()
                 except:
                     pass
+
 CrawIndexPage(starturl)

@@ -1,4 +1,5 @@
 from lxml import etree
+
 text = '''
 <div>
     <ul>
@@ -13,3 +14,4 @@ text = '''
 html = etree.HTML(text)
 result = etree.tostring(html)
 print(result)
+

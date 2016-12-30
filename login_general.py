@@ -1,4 +1,4 @@
-#!/usr/bin/python  
+# coding:utf-8
   
 import HTMLParser  
 import urlparse  
@@ -8,9 +8,9 @@ import cookielib
 import string  
 import re  
   
-#登录的主页面  
+# 登录的主页面
 hosturl = '******'
-#post数据接收和处理的页面（我们要向这个页面发送我们构造的Post数据）  
+# post数据接收和处理的页面（我们要向这个页面发送我们构造的Post数据）
 posturl = '******'
 # 从数据包中分析出，处理post请求的url
   
@@ -29,10 +29,10 @@ headers = {'User-Agent' : 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20
 #构造Post数据，他也是从抓大的包里分析得出的。  
 postData = {'op' : 'dmlogin',  
             'f' : 'st',  
-            'user' : '******', //你的用户名  
-            'pass' : '******', //你的密码，密码可能是明文传输也可能是密文，如果是密文需要调用相应的加密算法加密  
-            'rmbr' : 'true',   //特有数据，不同网站可能不同  
-            'tmp' : '0.7306424454308195'  //特有数据，不同网站可能不同  
+            'user' : '******', # 你的用户名
+            'pass' : '******', # 你的密码，密码可能是明文传输也可能是密文，如果是密文需要调用相应的加密算法加密
+            'rmbr' : 'true',   # 特有数据，不同网站可能不同
+            'tmp' : '0.7306424454308195'  # 特有数据，不同网站可能不同
   
             }  
   
